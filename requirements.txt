@@ -1,0 +1,7 @@
+sqlalchemy
+psycopg2
+pyyaml
+flask
+flask-restful
+flask-sqlalchemy
+flask-cors
