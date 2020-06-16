@@ -1,6 +1,3 @@
-import os
-from uuid import uuid4
-
 from .app import app
 
 

@@ -2,7 +2,7 @@ from flask import request
 from flask_restful import Api, Resource
 from sqlalchemy.orm.exc import NoResultFound
 
-from . import db as db_module
+import app.models as models
 from .app import app
 from .db import db
 
@@ -12,7 +12,7 @@ api = Api(app)
 class DatabaseResource(Resource):
     @property
     def model(self):
-        return getattr(db_module, self.__class__.__name__)
+        return getattr(models, self.__class__.__name__)
 
     def get(self, id=None):
         if id is None:
@@ -55,10 +55,10 @@ class DatabaseResource(Resource):
 
 for model_name in (
     name
-    for name in dir(db_module)
+    for name in dir(models)
     if (
-        isinstance(getattr(db_module, name), type)
-        and issubclass(getattr(db_module, name), db.Model)
+        isinstance(getattr(models, name), type)
+        and issubclass(getattr(models, name), db.Model)
     )
 ):
     api.add_resource(
