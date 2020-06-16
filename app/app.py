@@ -4,10 +4,11 @@ from flask_cors import CORS
 from .config import config
 
 app = Flask(__name__)
+dburi = 'postgresql://{username}:{password}@{host}:{port}/{database}'.format(**config['db'])
 app.config.update(
     {
-        "SQLALCHEMY_DATABASE_URI": config["db"]["uri"],
-        "SQLALCHEMY_TRACK_MODIFICATIONS": False,
+        'SQLALCHEMY_DATABASE_URI': dburi,
+        'SQLALCHEMY_TRACK_MODIFICATIONS': False,
     }
 )
 CORS(app)
