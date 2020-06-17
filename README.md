@@ -16,6 +16,8 @@ Packages vary depending on OS, e.g. you might need to just install `postgresql`.
 ./build_venv.sh
 ```
 
+Lastly, copy the `config.yaml.example` template to `config.yaml` and modify accordingly.
+
 ## PostgreSQL
 
 You will need to have a PostgreSQL server running, then create an appropriate user and database, e.g.:
