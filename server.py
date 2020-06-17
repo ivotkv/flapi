@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import app.api
+import app.rest
 import app.routes
 from app.app import app
 

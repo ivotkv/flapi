@@ -1,4 +1,5 @@
-from ..db import db, CRUDable
+from ..db import db
+from ..crud import CRUDable
 
 
 class Company(db.Model, CRUDable):

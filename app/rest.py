@@ -3,6 +3,7 @@ from flask_restful import Api, Resource
 from sqlalchemy.orm.exc import NoResultFound
 
 import app.models as models
+from .crud import CRUDable
 from .app import app
 from .db import db
 
@@ -59,6 +60,7 @@ for model_name in (
     if (
         isinstance(getattr(models, name), type)
         and issubclass(getattr(models, name), db.Model)
+        and issubclass(getattr(models, name), CRUDable)
     )
 ):
     api.add_resource(
