@@ -13,7 +13,7 @@ yum install postgresql-devel gcc-c++ make
 Packages vary depending on OS, e.g. you might need to just install `postgresql`. Then build the virtual environment:
 
 ```sh
-./init.sh
+./build_venv.sh
 ```
 
 ## PostgreSQL
