@@ -50,9 +50,9 @@ Run the Flask app:
 
 Once you have the Flask app running, you should be able to access the REST API at locahost port 5000:
 
-* <http://localhost:5000/model1> - List all Model1s
-* <http://localhost:5000/model1/1> - Model1 with id 1
+* <http://localhost:5000/user> - List all Users
+* <http://localhost:5000/user/1> - User with id 1
 
 You can provide GET params to filter by relationship ID, e.g.:
 
-* <http://localhost:5000/model2?model1_id=1> - List all Model2s for Model1 with ID 1
+* <http://localhost:5000/user?company_id=1> - List all Users for Company with ID 1
