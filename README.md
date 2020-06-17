@@ -10,43 +10,25 @@ Boilerplate for a basic Flask app.
 
 ## PostgreSQL
 
-You will need to have a PostgreSQL server running, then create an appropriate user and database:
+You will need to have a PostgreSQL server running, then create an appropriate user and database, e.g.:
 
 ```sql
-CREATE USER username PASSWORD 'password';
+CREATE USER flaskapp PASSWORD 'flaskapp';
 
-CREATE DATABASE dbname ENCODING 'UTF8' OWNER username;
+CREATE DATABASE flaskapp ENCODING 'UTF8' OWNER flaskapp;
 
-\c dbname
+\c flaskapp
 
-ALTER SCHEMA public OWNER TO username;
+ALTER SCHEMA public OWNER TO flaskapp;
 ```
 
-And initialise the tables tables from Python:
+And initialise the tables using `./reset_db.py`:
 
-```python
-import app.models
-
-app.models.db.create_all()
+```sh
+./reset_db.py
 ```
 
-If you later need to reset the database, just drop the PostgreSQL schema:
-
-```sql
-\c dbname
-
-DROP SCHEMA public CASCADE;
-
-CREATE SCHEMA public AUTHORIZATION username;
-
-COMMENT ON SCHEMA public IS 'standard public schema';
-
-GRANT ALL ON SCHEMA public TO username;
-
-GRANT ALL ON SCHEMA public TO PUBLIC;
-```
-
-And re-initialise from Python as above.
+If you later need to reset the database, just use the same script.
 
 ## Using the API
 

@@ -1,6 +1,6 @@
 db:
     host: localhost
     port: 5432
-    username: username
-    password: password
-    database: database
+    username: flaskapp
+    password: flaskapp
+    database: flaskapp
