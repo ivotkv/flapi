@@ -4,6 +4,14 @@ Boilerplate for a basic Flask app.
 
 ## Setup
 
+You need to have Python 3 installed, as well as the PostgreSQL libraries and standard build utils, e.g.:
+
+```sh
+yum install postgresql-devel gcc-c++ make
+```
+
+Packages vary depending on OS, e.g. you might need to just install `postgresql`. Then build the virtual environment:
+
 ```sh
 ./init.sh
 ```
