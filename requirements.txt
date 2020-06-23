@@ -1,4 +1,5 @@
 sqlalchemy
+sqlalchemy-json
 psycopg2
 pyyaml
 flask
