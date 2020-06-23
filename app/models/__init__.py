@@ -4,7 +4,7 @@ from importlib import import_module
 
 from ..db import db
 
-__all__ = []
+__all__ = ['db']
 
 for path in sorted(glob(os.path.dirname(__file__) + '/*.py')):
     module_name = path.split('/')[-1].split('.py')[0]

@@ -1,6 +1,5 @@
 from flask import request
 from flask_restful import Api, Resource
-from sqlalchemy.orm.exc import NoResultFound
 
 import app.models as models
 from .crud import CRUDable
@@ -28,7 +27,7 @@ class DatabaseResource(Resource):
         else:
             try:
                 return self.model.query.filter_by(id=id).one().read()
-            except NoResultFound:
+            except db.NoResultFound:
                 return {}, 404
 
     def post(self):
@@ -41,7 +40,7 @@ class DatabaseResource(Resource):
             self.model.query.filter_by(id=id).one().delete()
             db.session.commit()
             return {}, 204
-        except NoResultFound:
+        except db.NoResultFound:
             return {}, 404
 
     def put(self, id):
@@ -50,7 +49,7 @@ class DatabaseResource(Resource):
             entity.update(request.json)
             db.session.commit()
             return entity.read()
-        except NoResultFound:
+        except db.NoResultFound:
             return {}, 404
 
 
