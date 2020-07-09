@@ -1,6 +1,6 @@
-# Flask App
+# flapi
 
-Boilerplate for a basic Flask app.
+A Flask API.
 
 ## Setup
 
