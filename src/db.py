@@ -10,6 +10,8 @@ from sqlalchemy_json import mutable_json_type
 from .app import app
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
 db.now = datetime.now
 db.uuid4 = uuid4
 db.UUID = UUID

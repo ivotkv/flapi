@@ -5,4 +5,5 @@ pyyaml
 flask
 flask-restful
 flask-sqlalchemy
+Flask-Migrate
 flask-cors
