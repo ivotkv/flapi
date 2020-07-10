@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Api, Resource
 
-import app.models as models
+from . import models
 from .crud import CRUDable
 from .app import app
 from .db import db
