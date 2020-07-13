@@ -16,7 +16,7 @@ def add(entity):
     return entity
 
 
-db = SQLAlchemy(app, session_options={"autoflush": False})
+db = SQLAlchemy(app, session_options={'autoflush': False})
 migrate = Migrate(app, db)
 
 db.add = add
