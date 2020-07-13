@@ -63,6 +63,22 @@ And initialise the tables using `./reset_db.py`:
 
 If you later need to reset the database, just use the same script.
 
+# Development
+
+## Database Migrations
+
+To make changes to the schema, first make your changes in `models/` then run:
+
+```sh
+flask db migrate -m "Description of changes"
+```
+
+This will generate a script in `migrations/versions/`. Verify it then run:
+
+```sh
+flask db upgrade
+```
+
 # Using the API
 
 Run the Flask app:
@@ -70,8 +86,6 @@ Run the Flask app:
 ```sh
 ./app.py
 ```
-
-### REST
 
 Once you have the Flask app running, you should be able to access the REST API at locahost port 5000:
 

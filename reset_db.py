@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
+import os
 import sys
 
-from app.models import db
-from app.config import config
+from src.models import db
+from src.config import config
 
 # confirm
 if input("Reset database? [y/N] ").lower() != 'y':
@@ -18,3 +19,5 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 '''.format(username=config['db']['username']))
 
 db.create_all()
+
+os.system("flask db stamp")

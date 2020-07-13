@@ -1,6 +1,7 @@
 from datetime import datetime
 from uuid import uuid4
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from sqlalchemy.dialects.postgresql import UUID, JSON, JSONB
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm.attributes import InstrumentedAttribute, flag_modified
