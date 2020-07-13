@@ -67,7 +67,7 @@ If you later need to reset the database, just use the same script.
 
 ## Database Migrations
 
-To make changes to the schema, first make your changes in `models/` then run:
+To make changes to the schema, first make your changes in `src/models/` then run:
 
 ```sh
 flask db migrate -m "Description of changes"
