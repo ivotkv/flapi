@@ -21,8 +21,8 @@ migrate = Migrate(app, db)
 
 db.add = add
 db.now = datetime.now
-db.uuid4 = uuid4
-db.UUID = UUID(as_uuid=True)
+db.uuid4 = lambda: str(uuid4())
+db.UUID = UUID()
 db.JSON = mutable_json_type(dbtype=JSON, nested=True)
 db.JSONB = mutable_json_type(dbtype=JSONB, nested=True)
 db.SQLAlchemyError = SQLAlchemyError
