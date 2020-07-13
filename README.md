@@ -32,10 +32,10 @@ source venv/bin/activate
 
 * `secret_key`: the secret key used to encrypt session data. One way to generate it would be:
 
-```python
-import secrets
-secrets.token_urlsafe(16)
-```
+    ```python
+    import secrets
+    secrets.token_urlsafe(16)
+    ```
 
 ### db
 
