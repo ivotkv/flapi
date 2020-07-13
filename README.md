@@ -16,8 +16,6 @@ Packages vary depending on OS, see [here](https://github.com/ivotkv/ops/blob/mas
 ./build_venv.sh
 ```
 
-Lastly, copy the `config.yaml.example` template to `config.yaml` and modify accordingly.
-
 ## Virtual Environment
 
 Before running any scripts or the server itself, always make sure you have your virtual environment activated:
@@ -27,6 +25,8 @@ source venv/bin/activate
 ```
 
 ## Configuration
+
+Copy the `config.yaml.example` template to `config.yaml` and modify accordingly:
 
 ### app
 
