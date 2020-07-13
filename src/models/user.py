@@ -13,5 +13,5 @@ class User(db.Model, CRUDable):
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
 
-    company_id = db.Column(db.Integer, db.ForeignKey("company.id"), nullable=False)
-    company = db.relationship("Company")
+    company_id = db.Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
+    company = db.relationship('Company')

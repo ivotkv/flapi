@@ -64,6 +64,6 @@ for model_name in (
 ):
     api.add_resource(
         type(model_name, (DatabaseResource,), {}),
-        "/{0}".format(model_name.lower()),
-        "/{0}/<int:id>".format(model_name.lower()),
+        '/{0}'.format(model_name.lower()),
+        '/{0}/<int:id>'.format(model_name.lower()),
     )

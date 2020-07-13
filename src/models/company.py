@@ -7,9 +7,9 @@ class Company(db.Model, CRUDable):
 
     name = db.Column(db.String, unique=True)
 
-    users = db.relationship("User", cascade="save-update, merge, delete")
+    users = db.relationship('User', cascade='save-update, merge, delete')
 
     def read(self):
         fields = super().read()
-        fields["users_count"] = len(self.users)
+        fields['users_count'] = len(self.users)
         return fields

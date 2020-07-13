@@ -7,7 +7,7 @@ from src.models import db
 from src.config import config
 
 # confirm
-if input("Reset database? [y/N] ").lower() != 'y':
+if input('Reset database? [y/N] ').lower() != 'y':
     sys.exit()
 
 db.engine.execute('''\
@@ -20,4 +20,4 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 
 db.create_all()
 
-os.system("flask db stamp")
+os.system('flask db stamp')
