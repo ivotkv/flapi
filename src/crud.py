@@ -8,8 +8,7 @@ from .db import db
 class CRUDable(object):
     @classmethod
     def create(cls, fields):
-        instance = cls()
-        db.session.add(instance)
+        instance = db.add(cls())
         instance.set_fields(fields)
         return instance
 
