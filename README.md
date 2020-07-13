@@ -1,4 +1,4 @@
-# flapi
+# Flapi
 
 A Flask API.
 
