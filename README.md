@@ -26,6 +26,21 @@ Before running any scripts or the server itself, always make sure you have your 
 source venv/bin/activate
 ```
 
+## Configuration
+
+### app
+
+* `secret_key`: the secret key used to encrypt session data. One way to generate it would be:
+
+```python
+import secrets
+secrets.token_urlsafe(16)
+```
+
+### db
+
+Provide your PostgreSQL connection details here.
+
 ## PostgreSQL
 
 You will need to have a PostgreSQL server running, then create an appropriate user and database, e.g.:
