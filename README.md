@@ -2,7 +2,7 @@
 
 A Flask API.
 
-## Setup
+# Setup
 
 You need to have Python 3 installed, as well as the PostgreSQL libraries and standard build utils, e.g.:
 
@@ -46,13 +46,13 @@ Provide your PostgreSQL connection details here.
 You will need to have a PostgreSQL server running, then create an appropriate user and database, e.g.:
 
 ```sql
-CREATE USER flaskapp PASSWORD 'flaskapp';
+CREATE USER flapi PASSWORD 'flapi';
 
-CREATE DATABASE flaskapp ENCODING 'UTF8' OWNER flaskapp;
+CREATE DATABASE flapi ENCODING 'UTF8' OWNER flapi;
 
-\c flaskapp
+\c flapi
 
-ALTER SCHEMA public OWNER TO flaskapp;
+ALTER SCHEMA public OWNER TO flapi;
 ```
 
 And initialise the tables using `./reset_db.py`:
@@ -63,12 +63,12 @@ And initialise the tables using `./reset_db.py`:
 
 If you later need to reset the database, just use the same script.
 
-## Using the API
+# Using the API
 
 Run the Flask app:
 
 ```sh
-./server.py
+./app.py
 ```
 
 ### REST

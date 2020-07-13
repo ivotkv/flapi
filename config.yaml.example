@@ -3,6 +3,6 @@ app:
 db:
     host: localhost
     port: 5432
-    username: flaskapp
-    password: flaskapp
-    database: flaskapp
+    username: flapi
+    password: flapi
+    database: flapi
