@@ -5,7 +5,6 @@ from ..crud import CRUDable
 class Company(db.Model, CRUDable):
     id = db.Column(db.Integer, primary_key=True)
 
-    uuid = db.Column(db.UUID, unique=True)
     name = db.Column(db.String, unique=True)
 
     users = db.relationship("User", cascade="save-update, merge, delete")
