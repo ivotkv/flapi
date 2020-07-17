@@ -15,4 +15,4 @@ app.config.update(
     }
 )
 
-CORS(app)
+CORS(app, supports_credentials=True)
