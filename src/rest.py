@@ -23,17 +23,17 @@ class DatabaseResource(Resource):
                     col_type = type(getattr(self.model, key).property.columns[0].type)
                     if col_type is db.Integer and value.isdigit():
                         query = query.filter(getattr(self.model, key) == int(value))
-            return [i.read() for i in query.all()]
+            return [i.read() for i in query.all()], 200
         else:
             try:
-                return self.model.query.filter_by(id=id).one().read()
+                return self.model.query.filter_by(id=id).one().read(), 200
             except db.NoResultFound:
                 return {}, 404
 
     def post(self):
         entity = self.model.create(request.json)
         db.session.commit()
-        return entity.read()
+        return entity.read(), 201
 
     def delete(self, id):
         try:
@@ -48,7 +48,7 @@ class DatabaseResource(Resource):
             entity = self.model.query.filter_by(id=id).one()
             entity.update(request.json)
             db.session.commit()
-            return entity.read()
+            return entity.read(), 200
         except db.NoResultFound:
             return {}, 404
 
