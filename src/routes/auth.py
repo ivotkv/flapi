@@ -1,3 +1,4 @@
+import re
 from flask import request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from ..app import app
@@ -49,11 +50,16 @@ def register():
     else:
         return {}, 400
 
-    if User.query.filter_by(email=data['email'].lower().strip()).count() > 0:
+    data['email'] = data['email'].lower().strip()
+    if not re.match(r'^[\w\-\.]+@[\w\-\.]+(\.[\w\-\.]+){1,}$', data['email']) or \
+       len(data['password']) < 4:
+        return {}, 400
+
+    if User.query.filter_by(email=data['email']).count() > 0:
         return {}, 409
 
     user = db.add(User(
-        email=data['email'].lower().strip(),
+        email=data['email'],
         password=generate_password_hash(data['password']),
         first_name=data.get('first_name', '').strip(),
         last_name=data.get('last_name', '').strip()
