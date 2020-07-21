@@ -1,6 +1,6 @@
 # Flapi
 
-A Flask API.
+A minimal Flask API framework.
 
 # Setup
 
@@ -63,7 +63,40 @@ And initialise the tables using `./reset_db.py`:
 
 If you later need to reset the database, just use the same script.
 
+# Using the API
+
+To start the Flask app, activate your `venv` and run:
+
+```sh
+./app.py
+```
+
+If all went well, <http://localhost:5000/status> should return `OK`.
+
+Once you have the Flask app running, you should be able to access the REST API:
+
+* <http://localhost:5000/user> - List all Users
+* <http://localhost:5000/user/1> - User with id 1
+
+You can provide GET params to filter by relationship ID, e.g.:
+
+* <http://localhost:5000/user?company_id=1> - List all Users for Company with ID 1
+
+The standard `GET`, `POST`, `PUT` and `DELETE` operations are supported.
+
+Note that model names are not pluralized.
+
 # Development
+
+## Adding and Changing Models
+
+All models are defined in the `src/models/` directory. Any `.py` files created inside it will automatically be imported.
+
+Models are defined using the [SQLAlchemy Declarative](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/) syntax and must extend `db.Model`.
+
+The `db` object has references to common SQLAlchemy objects and functions, as well as other helpers to facilitate development.
+
+If models also extend `CRUDable`, they will be made available via the REST API automatically.
 
 ## Database Migrations
 
@@ -79,19 +112,6 @@ This will generate a script in `migrations/versions/`. Verify it then run:
 flask db upgrade
 ```
 
-# Using the API
+## Adding Routes
 
-Run the Flask app:
-
-```sh
-./app.py
-```
-
-Once you have the Flask app running, you should be able to access the REST API at locahost port 5000:
-
-* <http://localhost:5000/user> - List all Users
-* <http://localhost:5000/user/1> - User with id 1
-
-You can provide GET params to filter by relationship ID, e.g.:
-
-* <http://localhost:5000/user?company_id=1> - List all Users for Company with ID 1
+Flask routes are defined in the `src/routes/` directory. Any `.py` files created inside it will automatically be imported.
