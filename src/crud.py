@@ -26,6 +26,8 @@ class CRUDable(object):
     def get_field_names(cls):
         fields = set()
         for field in dir(cls):
+            if field[0] == '_':
+                continue
             value = getattr(cls, field)
             if (
                 isinstance(value, InstrumentedAttribute)
