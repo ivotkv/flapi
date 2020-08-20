@@ -10,7 +10,7 @@ You need to have Python 3 installed, as well as the PostgreSQL libraries and sta
 yum install python3 python3-devel postgresql-devel gcc-c++ make
 ```
 
-Packages vary depending on OS, see [here](https://github.com/ivotkv/ops/blob/master/howtos/amazonlinux2.md) for Amazon Linux 2 instructions. Then build the virtual environment:
+Then build the Python virtual environment:
 
 ```sh
 ./build_venv.sh
