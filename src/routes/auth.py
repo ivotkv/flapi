@@ -3,7 +3,7 @@ from flask import request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from ..app import app
 from ..db import db
-from ..models import User, Company
+from ..models import User
 
 
 @app.route('/auth/login', methods=['GET', 'POST'])
@@ -64,11 +64,6 @@ def register():
         first_name=data.get('first_name', '').strip(),
         last_name=data.get('last_name', '').strip()
     ))
-
-    try:
-        user.company = Company.query.filter_by(name='Floty').one()
-    except db.NoResultFound:
-        user.company = db.add(Company(name='Floty'))
 
     db.session.commit()
 

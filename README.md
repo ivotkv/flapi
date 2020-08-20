@@ -78,9 +78,9 @@ Once you have the Flask app running, you should be able to access the REST API:
 * <http://localhost:5000/user> - List all Users
 * <http://localhost:5000/user/1> - User with id 1
 
-You can provide GET params to filter by relationship ID, e.g.:
+You can provide GET params to filter by field, e.g.:
 
-* <http://localhost:5000/user?company_id=1> - List all Users for Company with ID 1
+* <http://localhost:5000/user?first_name=Bob> - List all Users with first_name "Bob"
 
 The standard `GET`, `POST`, `PUT` and `DELETE` operations are supported.
 
